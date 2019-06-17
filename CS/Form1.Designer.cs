@@ -95,7 +95,7 @@ namespace WindowsFormsApplication1 {
             pointSeriesLabel3.LineVisibility =  DevExpress.Utils.DefaultBoolean.True;
             series3.Label = pointSeriesLabel3;
             series3.Name = "(Unit Price) * (Units in Stock)";
-            series3.SummaryFunction = "PRODUCT([UnitPrice],[UnitsInStock])";
+            series3.QualitativeSummaryOptions.SummaryFunction = "PRODUCT([UnitPrice],[UnitsInStock])";
             series3.View = lineSeriesView3;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1,
