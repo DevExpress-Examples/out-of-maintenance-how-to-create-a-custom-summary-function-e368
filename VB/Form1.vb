@@ -25,43 +25,43 @@ Imports DevExpress.Charts.Native
 Imports DevExpress.XtraCharts
 
 Namespace WindowsFormsApplication1
-    Partial Public Class Form1
-        Inherits Form
+	Partial Public Class Form1
+		Inherits Form
 
-        Public Sub New()
-            InitializeComponent()
+		Public Sub New()
+			InitializeComponent()
 
-            ' Create argument descriptions for the summary function.
-            Dim argument1Description As New SummaryFunctionArgumentDescription("Price", ScaleType.Numerical)
-            Dim argument2Description As New SummaryFunctionArgumentDescription("Count", ScaleType.Numerical)
+			' Create argument descriptions for the summary function.
+			Dim argument1Description As New SummaryFunctionArgumentDescription("Price", ScaleType.Numerical)
+			Dim argument2Description As New SummaryFunctionArgumentDescription("Count", ScaleType.Numerical)
 
-            ' Register the summary function in a chart.
-            chartControl1.RegisterSummaryFunction("PRODUCT", "PRODUCT", 1, New SummaryFunctionArgumentDescription() { argument1Description, argument2Description }, AddressOf CalcProductValue)
+			' Register the summary function in a chart.
+			chartControl1.RegisterSummaryFunction("PRODUCT", "PRODUCT", 1, New SummaryFunctionArgumentDescription() { argument1Description, argument2Description }, AddressOf CalcProductValue)
 
 
-            ' Provide a datasource for the chart.
-            chartControl1.DataSource = nwindDataSet.Products
-        End Sub
+			' Provide a datasource for the chart.
+			chartControl1.DataSource = nwindDataSet.Products
+		End Sub
 
-        ' Declare the Product summary function.
-        Private Shared Function CalcProductValue(ByVal series As Series, ByVal argument As Object, ByVal functionArguments() As String, ByVal values() As DataSourceValues, ByVal colors() As Object) As SeriesPoint()
+		' Declare the Product summary function.
+		Private Shared Function CalcProductValue(ByVal series As Series, ByVal argument As Object, ByVal functionArguments() As String, ByVal values() As DataSourceValues, ByVal colors() As Object) As SeriesPoint()
 
-            ' Create an array of the resulting series points.
-            Dim points(values.Length - 1) As SeriesPoint
+			' Create an array of the resulting series points.
+			Dim points(values.Length - 1) As SeriesPoint
 
-            ' Calculate the resulting series points as Price * Count.
-            For i As Integer = 0 To values.Length - 1
-                points(i) = New SeriesPoint(argument, Convert.ToDouble(values(i)(functionArguments(0))) * Convert.ToDouble(values(i)(functionArguments(1))))
-            Next i
+			' Calculate the resulting series points as Price * Count.
+			For i As Integer = 0 To values.Length - 1
+				points(i) = New SeriesPoint(argument, Convert.ToDouble(values(i)(functionArguments(0))) * Convert.ToDouble(values(i)(functionArguments(1))))
+			Next i
 
-            ' Return the result.
-            Return points
-        End Function
+			' Return the result.
+			Return points
+		End Function
 
-        Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-            ' This line of code loads data into the 'nwindDataSet.Products' table.
-            Me.productsTableAdapter.Fill(Me.nwindDataSet.Products)
+		Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+			' This line of code loads data into the 'nwindDataSet.Products' table.
+			Me.productsTableAdapter.Fill(Me.nwindDataSet.Products)
 
-        End Sub
-    End Class
+		End Sub
+	End Class
 End Namespace
