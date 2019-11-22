@@ -72,8 +72,7 @@ namespace WindowsFormsApplication1 {
             this.chartControl1.Name = "chartControl1";
             series1.ArgumentDataMember = "ProductName";
             series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-            series1.DataFilters.ClearAndAddRange(new DevExpress.XtraCharts.DataFilter[] {
-            new DevExpress.XtraCharts.DataFilter("CategoryID", "System.Int32", DevExpress.XtraCharts.DataFilterCondition.Equal, 1)});
+            series1.FilterCriteria = new DevExpress.Data.Filtering.BinaryOperator("CategoryID", 1, DevExpress.Data.Filtering.BinaryOperatorType.Equal);
             pointSeriesLabel1.LineVisibility =  DevExpress.Utils.DefaultBoolean.True;
             series1.Label = pointSeriesLabel1;
             series1.Name = "Unit Price";
@@ -81,8 +80,7 @@ namespace WindowsFormsApplication1 {
             series1.View = lineSeriesView1;
             series2.ArgumentDataMember = "ProductName";
             series2.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-            series2.DataFilters.ClearAndAddRange(new DevExpress.XtraCharts.DataFilter[] {
-            new DevExpress.XtraCharts.DataFilter("CategoryID", "System.Int32", DevExpress.XtraCharts.DataFilterCondition.Equal, 1)});
+            series2.FilterCriteria = new DevExpress.Data.Filtering.BinaryOperator("CategoryID", 1, DevExpress.Data.Filtering.BinaryOperatorType.Equal);
             pointSeriesLabel2.LineVisibility =  DevExpress.Utils.DefaultBoolean.True;
             series2.Label = pointSeriesLabel2;
             series2.Name = "Units in Stock";
@@ -90,8 +88,7 @@ namespace WindowsFormsApplication1 {
             series2.View = lineSeriesView2;
             series3.ArgumentDataMember = "ProductName";
             series3.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-            series3.DataFilters.ClearAndAddRange(new DevExpress.XtraCharts.DataFilter[] {
-            new DevExpress.XtraCharts.DataFilter("CategoryID", "System.Int32", DevExpress.XtraCharts.DataFilterCondition.Equal, 1)});
+            series3.FilterCriteria = new DevExpress.Data.Filtering.BinaryOperator("CategoryID", 1, DevExpress.Data.Filtering.BinaryOperatorType.Equal);
             pointSeriesLabel3.LineVisibility =  DevExpress.Utils.DefaultBoolean.True;
             series3.Label = pointSeriesLabel3;
             series3.Name = "(Unit Price) * (Units in Stock)";
