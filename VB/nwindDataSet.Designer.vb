@@ -424,7 +424,7 @@ Namespace WindowsFormsApplication1
 			<Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>
 			<Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>
 			<Global.System.ComponentModel.Browsable(False)>
-			Public ReadOnly Overloads Property Count() As Integer
+			Public ReadOnly Property Count() As Integer
 				Get
 					Return Me.Rows.Count
 				End Get
@@ -961,13 +961,11 @@ Namespace WindowsFormsApplication1
 
 			Private eventAction As Global.System.Data.DataRowAction
 
-'INSTANT VB NOTE: The variable row was renamed since Visual Basic does not handle local variables named the same as class members well:
-'INSTANT VB NOTE: The variable action was renamed since Visual Basic does not handle local variables named the same as class members well:
 			<Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>
 			<Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>
-			Public Sub New(ByVal row_Renamed As ProductsRow, ByVal action_Renamed As Global.System.Data.DataRowAction)
-				Me.eventRow = row_Renamed
-				Me.eventAction = action_Renamed
+			Public Sub New(ByVal row As ProductsRow, ByVal action As Global.System.Data.DataRowAction)
+				Me.eventRow = row
+				Me.eventAction = action
 			End Sub
 
 			<Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>
